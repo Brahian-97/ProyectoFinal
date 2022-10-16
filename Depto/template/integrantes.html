@@ -1,0 +1,31 @@
+{% extends "inicio.html" %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}"> 
+<link rel="stylesheet" href="{% static 'css/myestilo.css'%}"> 
+{% block contenido %}
+    <p> Hola {{user.username}} </p>
+    <br>
+    <a href="/Depto/read_integrantes/" class="btn btn-warning">Editar integrantes</a>
+    <a href="/Depto/create_integrantes/" class="btn btn-warning">Crear integrantes</a>
+    <div>
+        <br>
+        <form class="formDataIntegrantes" action="/Depto/buscar_integrantes/" method="GET"> 
+            <input type="email" name="email" placeholder="Email">
+            <button type="submit" class="btn btn-primary">Buscar integrante</button>
+        </form> 
+    </div>
+    <div>
+        {% if integrantes %}
+        <ul>
+            {%for integrante in integrantes%}
+            <li>{{integrante.nombre}}</li>
+            <li>{{integrante.apellido}}</li>
+            <li>{{integrante.email}}</li>
+            <li>{{integrante.depto}}</li>
+            {%endfor%}
+        </ul>
+        {%endif%}
+    </div>  
+{% endblock %}
+
