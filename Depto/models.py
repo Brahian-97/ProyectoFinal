@@ -37,8 +37,8 @@ class GastosDiarios(models.Model):
         return f"Nombre: {self.nombre} - Tipo: {self.tipo} - Valor: {self.valor} - Fecha: {self.fecha}"
 
 
-#class Avatar(models.Model):
-#    #vinculo con el usuario
-#    user = models.ForeignKey(User, on_delete = models.CASCADE)
-#    #subcarpeta avatares de media
-#    image = models.ImageField(upload_to='avatares', null = True, blank = True)
+class Avatar(models.Model):
+    #vinculo con el usuario
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    #subcarpeta avatares de media
+    image = models.ImageField(upload_to='avatares', null = True, blank = True)

@@ -30,10 +30,17 @@ urlpatterns = [
     path('delete_gastosD/<gastoD_id>', delete_diarios),
     path('buscar_diarios/', buscar_diarios),
     #tareas
-    path('tareas/', tareas),
+    path('supermercado/', lista_super),
     #logout
     path('logout/', LogoutView.as_view(template_name = 'inicio.html'), name = "Logout"),
     #login
     path('login/', login_request),
+    #registro
+    path('registro/', registro),
+    #perfil
+    path('perfil/', perfil),
+    path('perfil/editarPerfil/', editarPerfil),
+    path('perfil/cambiarPassword/', cambiarPassword),
+    path('perfil/changeAvatar/', AgregarAvatar),
 ]
 
