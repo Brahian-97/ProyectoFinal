@@ -41,10 +41,11 @@ urlpatterns = [
     path('login/', login_request),
     #registro
     path('registro/', registro),
-    #perfil
+    #perfill
     path('perfil/', perfil),
     path('perfil/editarPerfil/', editarPerfil),
     path('perfil/cambiarPassword/', cambiarPassword),
     path('perfil/changeAvatar/', AgregarAvatar),
+
 ]
 
