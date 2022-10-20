@@ -22,6 +22,11 @@ class form_GastosDiarios(forms.Form):
     valor = forms.IntegerField()
     fecha = forms.DateField()
 
+class form_Supermercado(forms.Form):
+    producto = forms.CharField(max_length=30)
+    rubro = forms.CharField(max_length=30)
+    cantidad = forms.IntegerField()
+
 class UserRegisterForm(UserCreationForm):
     email= forms.EmailField()
     password1= forms.CharField(label="Contraseña", widget= forms.PasswordInput)

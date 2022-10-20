@@ -198,6 +198,41 @@ def buscar_integrantes(request):
 #SUPERMERCADO
 
 def lista_super(request):
+    supermercados = Supermercado.objects.all()
+    if request.method == 'POST':
+        supermercados = Supermercado(producto = request.POST['producto'], rubro = request.POST['rubro'], cantidad = request.POST['cantidad'])
+        supermercados.save()
+        supermercados = Supermercado.objects.all()
+        return render(request, "supermercado.html", {"supermercados": supermercados})
+    return render(request, "supermercado.html")
+
+def update_supermercado(request, supermercado_id):
+    supermercado = Supermercado.objects.get(id = supermercado_id)
+
+    if request.method == 'POST':
+        formulario = form_Supermercado(request.POST)
+
+        if formulario.is_valid():
+            informacion = formulario.cleaned_data
+            supermercado.producto = informacion['producto']
+            supermercado.rubro = informacion['rubro']
+            supermercado.cantidad = informacion['cantidad']
+            supermercado.save()
+            supermercados = Supermercado.objects.all() #trae todo
+            return render(request, "supermercado.html", {"supermercados": supermercados})
+    else:
+        formulario = form_Supermercado(initial={'producto': supermercado.producto,'rubro': supermercado.rubro,'cantidad': supermercado.cantidad})
+    return render(request, "update_supermercado.html", {"formulario": formulario})
+
+def read_supermercado(request):
+    supermercados = Supermercado.objects.all() #trae todo
+    return render(request, "supermercado.html", {"supermercados": supermercados})
+
+def delete_supermercado(request, supermercado_id):
+    supermercado = Supermercado.objects.get(id = supermercado_id)
+    supermercado.delete()
+    supermercados = Supermercado.objects.all()
+    return render(request, "supermercado.html", {"supermercados": supermercados}) 
     avatar = Avatar.objects.filter(user = request.user.id)
     try:
         avatar = avatar[0].image.url
@@ -225,7 +260,7 @@ def login_request(request):
                     avatar = avatar[0].image.url
                 except:
                     avatar = None
-                return render(request, 'perfiles/inicio.html', {'avatar': avatar})
+                return render(request, 'inicio.html', {'avatar': avatar})
             else:
                 return render(request, "perfiles/login.html", {'form':form})
         else:

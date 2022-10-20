@@ -1,0 +1,30 @@
+{% extends "home.html" %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}"> 
+    <link rel="stylesheet" href="{% static 'css/myestilo.css'%}"> 
+    <title>Acerca de los blogs</title>
+</head>
+<body>
+  {% block contenido %}
+    <div class="dropdown-container">
+      <h2> Aplicacion: Departamento</h2>
+      <ul>
+        <button>Integrantes</button>
+        <p>En esta pagina se puede listar los Integrantes del Departamento</p>
+        <button>Gastos</button>
+        <p>En esta pagina se puede anotar los gastos fijos y diarios del Departamento</p>
+        <button>Supermercado</button>
+        <p>En esta pagina se puede anotar y consultar los elementos de la lista del supermercado para el Departamento</p>
+      </ul>
+    </div>
+    <img src="paginas.jpg" alt="Imagen">
+  {%endblock%}
+</body>
+</html>

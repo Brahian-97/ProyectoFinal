@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}"> 
 <link rel="stylesheet" href="{% static 'css/myestilo.css'%}"> 
 {% block contenido %}
-    <p> Hola {{user.username}} </p>
+<h1> Hola {{user.username}} </h1>
     <br>
     <a href="/Depto/create_gastosD/" class="btn btn-warning">Crear gasto Diario</a>
     <a href="/Depto/read_gastosD/" class="btn btn-warning">Ver gastos Diarios</a>

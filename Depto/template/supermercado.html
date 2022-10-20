@@ -4,11 +4,20 @@
 <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}"> 
 <link rel="stylesheet" href="{% static 'css/myestilo.css'%}"> 
 {% block contenido %}
-    <p> Hola {{user.username}} la lista del supermercado es:</p>
+    <h2> Hola {{user.username}} la lista del supermercado es:</h2>
+    {% for supermercado in supermercados %}
+    <li>
+        {{ supermercado }}
+        <a href="/Depto/update_supermercado/{{supermercado.id}}" class="btn btn-warning">Edit</a>
+        <a href="/Depto/delete_supermercado/{{supermercado.id}}" class="btn btn-danger">Delete</a>
+    </li>
+    {% endfor %}
     <br>
-    <div>
-        <label><input type="checkbox" id="cbox1" value="first_checkbox"> Este es mi primer checkbox</label><br>
-        <input type="checkbox" id="cbox2" value="second_checkbox"> <label for="cbox2">Este es mi segundo checkbox</label><br>
-        <label><input type="checkbox" id="cbox1" value="first_checkbox"> Este es mi primer checkbox</label><br>
-    </div>
+    <h2>Agregar productos</h2>
+    <form class="formDataIntegrantes" method="POST" action="/Depto/supermercado/"> {% csrf_token %}
+        <input type="text" name="producto" placeholder="Producto">
+                <input type="text" name="rubro" placeholder="Rubro">
+                <input type="text" name="cantidad" placeholder="Cantidad">
+                <button type="submit" class="btn btn-primary">Subir</button>
+    </form>
 {% endblock %}

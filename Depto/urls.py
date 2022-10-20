@@ -31,8 +31,12 @@ urlpatterns = [
     path('buscar_diarios/', buscar_diarios),
     #tareas
     path('supermercado/', lista_super),
+    path('read_supermercado/', read_supermercado),
+    path('update_supermercado/<supermercado_id>', update_supermercado),
+    path('delete_supermercado/<supermercado_id>', delete_supermercado),
+
     #logout
-    path('logout/', LogoutView.as_view(template_name = 'inicio.html'), name = "Logout"),
+    path('logout/', LogoutView.as_view(template_name = 'home.html'), name = "Logout"),
     #login
     path('login/', login_request),
     #registro

@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}"> 
 <link rel="stylesheet" href="{% static 'css/myestilo.css'%}"> 
 {% block contenido %}
-    <p> Hola {{user.username}} </p>
+    <h1> Hola {{user.username}} </h1>
     <br>
     <a href="/Depto/read_integrantes/" class="btn btn-warning">Editar integrantes</a>
     <a href="/Depto/create_integrantes/" class="btn btn-warning">Crear integrantes</a>

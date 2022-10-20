@@ -27,6 +27,15 @@ class TareasHogar(models.Model):
     fechaARealizar = models.DateField()
     realizada = models.BooleanField()
 
+class Supermercado(models.Model):
+    producto = models.CharField(max_length=30)
+    rubro = models.CharField(max_length=30)
+    cantidad = models.IntegerField()
+
+    def __str__(self):
+        return f"Producto: {self.producto} - Rubro: {self.rubro} - Cantidad: {self.cantidad}"
+
+
 class GastosDiarios(models.Model):
     nombre = models.CharField(max_length=30)
     valor = models.IntegerField()
